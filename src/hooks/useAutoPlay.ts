@@ -32,7 +32,7 @@ export function useAutoPlay(opts: {
   }, [autoPlayReverse, autoPlayInterval, prev, next]);
 
   const pause = React.useCallback(() => {
-    if (!autoPlay)
+    if (!stopped.current)
       return;
 
     timer.current && clearTimeout(timer.current);
